@@ -11,9 +11,9 @@ Este repositório é a parte **front end** do projeto. O back end (API REST com 
 ## 🛠️ Tecnologias
 
 - HTML5
-- JavaScript (Vanilla)
+- JavaScript 
 - [Tailwind CSS](https://tailwindcss.com/) (via CDN)
-- Google Fonts (Poppins / Inter)
+- Preline UI (Biblioteca de Componentes Tailwind)
 
 ## 🚀 Como executar
 
