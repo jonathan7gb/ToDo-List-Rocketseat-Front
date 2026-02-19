@@ -46,7 +46,7 @@
             <!-- CREATE USER FORM -->
             <div class="mt-4 bg-primary p-4 rounded-lg w-full">
                 <form action="" method="POST" class="flex flex-col" id="createForm">
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
                         <div class="flex flex-col">
                             <label for="name" class="font-semibold font-poppins text-secondary">Name</label>
                             <input type="text" id="name" name="name" placeholder="Enter your full name" class="border-b font-medium p-2 bg-transparent border-secondary placeholder:text-secondary/75 outline-transparent focus:outline-none text-secondary">
@@ -55,7 +55,7 @@
                             <label for="email" class="font-semibold font-poppins text-secondary">E-mail</label>
                             <input type="text" id="email" name="email" placeholder="Enter your e-mail" class="border-b font-medium p-2 bg-transparent border-secondary placeholder:text-secondary/75 outline-transparent focus:outline-none text-secondary">
                         </div>
-                        <div class="flex flex-col">
+                        <div class="flex flex-col md:col-span-2 lg:col-span-1">
                             <label for="password" class="font-semibold font-poppins text-secondary">Password</label>
                             <input type="password" id="password" name="password" placeholder="Enter your password" class="border-b font-medium p-2 bg-transparent border-secondary placeholder:text-secondary/75 outline-transparent focus:outline-none text-secondary">
                         </div>
@@ -78,7 +78,7 @@
 
            <!-- SHOW USERS -->
             <div class="w-full">
-            <div class="border border-table-line rounded-lg max-h-[450px] overflow-auto [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-secondary [&::-webkit-scrollbar-thumb:hover]:bg-secondary/90">
+            <div class="shadow-lg border border-table-line rounded-lg max-h-[450px] overflow-auto [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-secondary [&::-webkit-scrollbar-thumb:hover]:bg-secondary/90">
                 <table class="w-full divide-y divide-table-line">
                 <thead class="sticky top-0">
                     <tr class="divide-x divide-table-line">
