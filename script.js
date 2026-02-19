@@ -171,7 +171,7 @@ function addUserAtList(name, email, id) {
 function returnErrorTable(message) {
     return `
             <tr class="">
-                <td class="px-4 py-2 text-red-500 text-lg font-medium font-inter">${message}</td>
+                <td class="px-4 py-2 text-red-500 font-medium font-inter">${message}</td>
             </tr>
         `;
 }
