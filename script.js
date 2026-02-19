@@ -2,34 +2,32 @@ const tableBody = document.getElementById("tableBody")
 const createForm = document.getElementById("createForm")
 const createErrors = document.getElementById("createErrors")
 
-document.addEventListener("DOMContentLoaded", (event) => {
-    fetch(returnUrlUser(""))
-        .then(resp => {
+fetch(returnUrlUser(""))
+    .then(resp => {
 
-            if (!resp.ok) {
-                return resp.json()
-                    .then(errorData => {
-                        throw new Error(errorData.message)
-                    })
-            }
-
+        if (!resp.ok) {
             return resp.json()
-        })
-        .then(data => {
+                .then(errorData => {
+                    throw new Error(errorData.message)
+                })
+        }
 
-            let rows = ""
-            data.forEach(response => {
-                rows += addUserAtList(response.name, response.email, response.id)
-            })
+        return resp.json()
+    })
+    .then(data => {
 
-            tableBody.innerHTML = rows
+        let rows = ""
+        data.forEach(response => {
+            rows += addUserAtList(response.name, response.email, response.id)
         })
-        .catch(error => {
-            tableBody.innerHTML = returnError(error.message)
-        })
-}); 
 
-createForm.addEventListener('submit', function(e) {
+        tableBody.innerHTML = rows
+    })
+    .catch(error => {
+        tableBody.innerHTML = returnError(error.message)
+    })
+
+createForm.addEventListener('submit', function (e) {
     e.preventDefault()
 
     const data = {
@@ -44,14 +42,14 @@ createForm.addEventListener('submit', function(e) {
 function addUserAtList(name, email, id) {
     return `
         <tr class="">
-            <td class="px-4 py-2 font-medium font-inter">${name}</td>
-            <td class="px-4 py-2 font-inter">${email}</td>
+            <td class="px-4 text-sm py-2 font-inter text-secondary">${name}</td>
+            <td class="px-4 text-sm py-2 font-inter text-secondary">${email}</td>
             <td class="px-4 py-2 text-red-600 font-medium font-inter flex flex-row">
                 <button class="p-2 font-inter ">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-pen-icon lucide-square-pen"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8A7650" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-pen-icon lucide-square-pen"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg>
                 </button>
                 <button class="p-2 font-inter flex flex-row gap-2" onclick="deleteUser('${id}')">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2-icon lucide-trash-2"><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8A7650" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2-icon lucide-trash-2"><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
                 </button>
             </td>         
            
@@ -80,7 +78,7 @@ function returnUrlUser(path) {
     return `http://localhost:8080/users${path}`
 }
 
-function createUser(data){
+function createUser(data) {
     const url = returnUrlUser("")
 
     fetch(url, {
@@ -90,8 +88,8 @@ function createUser(data){
         },
         body: JSON.stringify(data)
     })
-    .then(r => {
-         if (!r.ok) {
+        .then(r => {
+            if (!r.ok) {
                 return r.json()
                     .then(errorData => {
                         throw new Error(errorData.message)
@@ -99,8 +97,8 @@ function createUser(data){
             }
             location.reload()
             return r.json()
-    })
-    .catch(error => {
+        })
+        .catch(error => {
             createErrors.innerHTML = returnError(error.message)
         })
 }
@@ -115,16 +113,16 @@ function deleteUser(id) {
             'Content-Type': 'application/json'
         }
     })
-    .then(res => {
-         if (!res.ok) {
-            return res.text().then(text => {
-                throw new Error(text || "Erro ao deletar usuário")
-            })
-        }
+        .then(res => {
+            if (!res.ok) {
+                return res.text().then(text => {
+                    throw new Error(text || "Erro ao deletar usuário")
+                })
+            }
 
-             location.reload()
-    })
-    .catch(error => {
+            location.reload()
+        })
+        .catch(error => {
             tableBody.innerHTML = returnErrorTable(error.message)
         })
 }
