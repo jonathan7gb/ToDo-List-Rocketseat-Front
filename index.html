@@ -60,7 +60,7 @@
                             <input type="password" id="password" name="password" placeholder="Enter your password" class="border-b font-medium p-2 bg-transparent border-secondary placeholder:text-secondary/75 outline-transparent focus:outline-none text-secondary">
                         </div>
                     </div>
-                    <button type="submit" class="bg-secondary text-white rounded-lg px-4 py-2 mt-4  font-medium hover:bg-secondary/75 transition">Create</button>
+                    <button type="submit" class="bg-secondary text-white rounded-lg px-4 py-2 mt-4  font-medium hover:bg-secondary/90 transition">Create</button>
                    
                     <!-- WHEN THE BACKEND THROW ANY ERROR, AT THIS SECTION OF FORMS THE FRONT SHOW ERROS -->
                     <div id="createErrors">
@@ -71,8 +71,8 @@
 
             <!-- SEARCH SECTION -->
             <div class="py-4  mt-4 w-full">
-                <form action="" method="GET" class="w-full">
-                    <input type="text" name="searchsearchUser" id="searchUser" placeholder="🔍︎ Search users" class="w-full border border-secondary rounded-lg font-medium py-2 px-4 bg-transparent placeholder:text-secondary/75 outline-transparent focus:outline-none text-secondary">
+                <form action="" method="GET" class="w-full flex flex-row gap-2" id="searchForm">
+                    <input type="text" name="searchUser" id="searchUser" placeholder="🔍︎ Search users" class="w-full border border-secondary rounded-lg font-medium py-2 px-4 bg-transparent placeholder:text-secondary/75 outline-transparent focus:outline-none text-secondary">
                 </form>
             </div>
 
@@ -101,5 +101,5 @@
     </main>
 
 
-    <script src="./script.js"></script>
+    <script type="module" src="./script.js"></script>
 </body>
