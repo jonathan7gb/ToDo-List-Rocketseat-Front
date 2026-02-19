@@ -32,19 +32,42 @@
         </div>
     </header>
 
-    <main class="grid grid-cols-2 items-center w-full gap-4 p-8 mt-4">
+    <main class="grid grid-cols-1 lg:grid-cols-2 items-center w-full gap-4 p-8 mt-4">
         <aside class="flex flex-col items-center justify-center">
             <h2 class="text-2xl font-bold font-poppins text-[#355872]">Users</h2>
 
-           <!-- Table -->
-            <div class="w-99">
+
+            <!-- CREATE USER FORM -->
+            <div class="mt-4 bg-[#9CD5FF] p-4 rounded-lg">
+                <form action="" method="POST" class="flex flex-col">
+                    <div class="flex flex-row gap-2">
+                        <div class="flex flex-col">
+                            <label for="name" class="font-medium font-poppins text-[#355872]">Name</label>
+                            <input type="text" id="name" placeholder="Ex: Neymar Jr." class="border-b p-2 bg-transparent border-white placeholder:text-white outline-transparent focus:outline-none text-white">
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="name" class="font-medium font-poppins text-[#355872]">E-mail</label>
+                            <input type="text" id="name" placeholder="Ex: neymar@gmail.com" class="border-b p-2 bg-transparent border-white placeholder:text-white outline-transparent focus:outline-none text-white">
+                        </div>
+                    </div>
+                    <button type="submit" class="bg-[#355872] text-white rounded-lg px-4 py-2 mt-2 font-medium">Create</button>
+                   
+                    <!-- WHEN THE BACKEND THROW ANY ERROR, AT THIS SECTION OF FORMS THE FRONT SHOW ERROS -->
+                    <div id="createErrors">
+
+                    </div>
+                </form>
+            </div>
+
+           <!-- SHOW USERS -->
+            <div class="w-99 mt-4">
             <div class="border border-table-line rounded-lg overflow-x-auto [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-none [&::-webkit-scrollbar-track]:bg-scrollbar-track [&::-webkit-scrollbar-thumb]:bg-scrollbar-thumb">
                 <table class="w-full divide-y divide-table-line">
                 <thead>
                     <tr class="divide-x divide-table-line">
-                    <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-muted-foreground-1 uppercase">Name</th>
-                    <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-muted-foreground-1 uppercase">E-mail</th>
-                    <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-muted-foreground-1 uppercase">Action</th>
+                    <th scope="col" class="bg-[#9CD5FF] px-6 py-3 font-poppins text-start text-xs font-medium text-muted-foreground-1 uppercase">Name</th>
+                    <th scope="col" class="bg-[#9CD5FF] px-6 py-3 font-poppins text-start text-xs font-medium text-muted-foreground-1 uppercase">E-mail</th>
+                    <th scope="col" class="bg-[#9CD5FF] px-6 py-3 font-poppins text-start text-xs font-medium text-muted-foreground-1 uppercase">Action</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-table-line" id="tableBody">
@@ -53,7 +76,6 @@
                 </table>
             </div>
             </div>
-            <!-- End Table -->
 
         </aside>
         <aside class="flex flex-col items-center justify-center">
