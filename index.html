@@ -36,17 +36,24 @@
         <aside class="flex flex-col items-center justify-center">
             <h2 class="text-2xl font-bold font-poppins text-[#355872]">Users</h2>
 
-            <table class="mt-4 w-[500px] overflow-hidden rounded-lg">
-                <thead class="bg-[#355872] border border-[#355872]">
-                    <tr>
-                        <th class="px-4 py-2 text-left text-white">Name</th>
-                        <th class="px-4 py-2 text-left text-white">E-mail</th>
+           <!-- Table -->
+            <div class="w-99">
+            <div class="border border-table-line rounded-lg overflow-x-auto [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-none [&::-webkit-scrollbar-track]:bg-scrollbar-track [&::-webkit-scrollbar-thumb]:bg-scrollbar-thumb">
+                <table class="w-full divide-y divide-table-line">
+                <thead>
+                    <tr class="divide-x divide-table-line">
+                    <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-muted-foreground-1 uppercase">Name</th>
+                    <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-muted-foreground-1 uppercase">E-mail</th>
+                    <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-muted-foreground-1 uppercase">Action</th>
                     </tr>
                 </thead>
-                <tbody id="tableBody">
+                <tbody class="divide-y divide-table-line" id="tableBody">
                     
                 </tbody>
-            </table>
+                </table>
+            </div>
+            </div>
+            <!-- End Table -->
 
         </aside>
         <aside class="flex flex-col items-center justify-center">
