@@ -39,18 +39,20 @@
 
             <!-- CREATE USER FORM -->
             <div class="mt-4 bg-[#9CD5FF] p-4 rounded-lg">
-                <form action="" method="POST" class="flex flex-col">
+                <form action="" method="POST" class="flex flex-col" id="createForm">
                     <div class="flex flex-row gap-2">
                         <div class="flex flex-col">
                             <label for="name" class="font-medium font-poppins text-[#355872]">Name</label>
-                            <input type="text" id="name" placeholder="Ex: Neymar Jr." class="border-b p-2 bg-transparent border-white placeholder:text-white outline-transparent focus:outline-none text-white">
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" class="border-b p-2 bg-transparent border-white placeholder:text-white outline-transparent focus:outline-none text-white">
                         </div>
                         <div class="flex flex-col">
-                            <label for="name" class="font-medium font-poppins text-[#355872]">E-mail</label>
-                            <input type="text" id="name" placeholder="Ex: neymar@gmail.com" class="border-b p-2 bg-transparent border-white placeholder:text-white outline-transparent focus:outline-none text-white">
+                            <label for="email" class="font-medium font-poppins text-[#355872]">E-mail</label>
+                            <input type="text" id="email" name="email" placeholder="Enter your e-mail" class="border-b p-2 bg-transparent border-white placeholder:text-white outline-transparent focus:outline-none text-white">
                         </div>
                     </div>
-                    <button type="submit" class="bg-[#355872] text-white rounded-lg px-4 py-2 mt-2 font-medium">Create</button>
+                    <label for="password" class="font-medium font-poppins text-[#355872] mt-4">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" class="border-b p-2 bg-transparent border-white placeholder:text-white outline-transparent focus:outline-none text-white">
+                    <button type="submit" class="bg-[#355872] text-white rounded-lg px-4 py-2 mt-4  font-medium">Create</button>
                    
                     <!-- WHEN THE BACKEND THROW ANY ERROR, AT THIS SECTION OF FORMS THE FRONT SHOW ERROS -->
                     <div id="createErrors">
