@@ -178,7 +178,7 @@ function addUsersAtTaskForm(user_id, user_name){
 
 function addTaskAtList(data){
     return `
-        <div class="flex flex-col justify-between gap-1  p-4 border rounded-lg border-secondary text-secondary">
+        <div class="flex flex-col justify-between gap-1 p-4 border rounded-lg border-secondary text-secondary">
             <div class="flex flex-col">
                 <h3 class="font-bold text-xl">${data.title}</h3>
                 <p class="flex flex-row gap-2 mt-1 text-xs">
