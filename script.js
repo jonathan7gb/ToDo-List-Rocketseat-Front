@@ -176,10 +176,40 @@ function addUsersAtTaskForm(user_id, user_name){
     `;
 }
 
+function addTaskAtList(data){
+    return `
+        <div class="flex flex-col justify-between gap-1  p-4 border rounded-lg border-secondary text-secondary">
+            <div class="flex flex-col">
+                <h3 class="font-bold text-xl">${data.title}</h3>
+                <p class="flex flex-row gap-2 mt-1 text-xs">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A7650" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-user-round-icon lucide-circle-user-round"><path d="M18 20a6 6 0 0 0-12 0"/><circle cx="12" cy="10" r="4"/><circle cx="12" cy="12" r="10"/></svg>
+                    ${data.user.name}
+                </p>
+                <p class="mt-2">${data.description}</p>
+            </div>
+                <div class="flex flex-row gap-4 mt-2">
+                    ${taskPriority(data.priority)}
+                    <button class="bg-green-300 p-1 py-2 font-medium text-green-800 rounded-lg w-[100px] text-center mt-2 text-sm transition hover:bg-green-400">Start Task</button>
+            </div>
+        </div>
+    `
+}
+
+function taskPriority(priority){
+    if(priority == "HIGH"){
+        return `<p class="bg-red-200 p-1 py-2 font-medium text-red-800 rounded-lg w-[100px] text-center mt-2 text-sm">${priority}</p>`
+    }else if(priority == "MEDIUM"){
+        return `<p class="bg-yellow-200 p-1 py-2 font-medium text-yellow-800 rounded-lg w-[100px] text-center mt-2 text-sm">${priority}</p>`
+    }else{
+        return `<p class="bg-blue-200 p-1 py-2 font-medium text-blue-800 rounded-lg w-[100px] text-center mt-2 text-sm">${priority}</p>`
+    }
+}
+
 
 // ====================================================================
 // TASKS
 const userSelect = document.getElementById("userSelect")
+const tasksList = document.getElementById("tasksList")
 
 // RETURN URL
 function returnUrlTask(path) {
@@ -204,12 +234,19 @@ function loadAllTasks(){
         })
         .then(data => {
 
+            let rows = ""
+            data.forEach(response => {
+                rows += addTaskAtList(response)
+            })
             
+            tasksList.innerHTML = rows
         })
         .catch(error => {
             
         })
 }
+
+
 
 
 
