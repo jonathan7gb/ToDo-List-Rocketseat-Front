@@ -36,7 +36,7 @@ function loadAllUsers(){
                 rowsTask += addUsersAtTaskForm(response.id, response.name)
             })
             
-            userSelect.innerHTML = rowsTask
+            userSelectTask.innerHTML = rowsTask
             tableBody.innerHTML = rowsUser
         })
         .catch(error => {
@@ -208,8 +208,10 @@ function taskPriority(priority){
 
 // ====================================================================
 // TASKS
-const userSelect = document.getElementById("userSelect")
+const userSelectTask = document.getElementById("userSelectTask")
 const tasksList = document.getElementById("tasksList")
+const createErrorsTask = document.getElementById("createErrorsTask")
+const createFormTask = document.getElementById("createFormTask")
 
 // RETURN URL
 function returnUrlTask(path) {
@@ -217,6 +219,22 @@ function returnUrlTask(path) {
 }
 
 loadAllTasks()
+
+
+// POST TASK
+createFormTask.addEventListener('submit', function (e) {
+    e.preventDefault()
+
+    const data = {
+        title: createFormTask.titleTask.value,
+        description: createFormTask.descriptionTask.value,
+        priority: createFormTask.priorityTask.value,
+        user_id: createFormTask.userSelectTask.value
+    }
+
+    createTask(data)
+})
+
 
 // GET ALL TASKS
 function loadAllTasks(){
@@ -246,7 +264,30 @@ function loadAllTasks(){
         })
 }
 
+function createTask(data) {
+    const url = returnUrlTask("")
 
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(r => {
+            if (!r.ok) {
+                return r.json()
+                    .then(errorData => {
+                        throw new Error(errorData.message)
+                    })
+            }
+            location.reload()
+            return r.json()
+        })
+        .catch(error => {
+            createErrorsTask.innerHTML = returnError(error.message)
+        })
+}
 
 
 
