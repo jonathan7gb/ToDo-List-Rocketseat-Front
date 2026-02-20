@@ -212,6 +212,7 @@ const userSelectTask = document.getElementById("userSelectTask")
 const tasksList = document.getElementById("tasksList")
 const createErrorsTask = document.getElementById("createErrorsTask")
 const createFormTask = document.getElementById("createFormTask")
+const searchTask = document.getElementById("searchTask")
 
 // RETURN URL
 function returnUrlTask(path) {
@@ -233,6 +234,17 @@ createFormTask.addEventListener('submit', function (e) {
     }
 
     createTask(data)
+})
+
+// FIND BY TITLE
+searchTask.addEventListener('input', function(e) {
+    const title = searchTask.value.trim()
+
+    if(title.length >= 1){
+        findUserByTitle(title)
+    }else{
+        loadAllTasks()
+    }
 })
 
 
@@ -289,6 +301,41 @@ function createTask(data) {
         })
 }
 
+function findUserByTitle(title){
+    const url = returnUrlTask(`/searchbytitle/${title}`)
+
+     fetch(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(res => {
+        if (!res.ok) {
+            return res.json()
+                .then(errorData => {
+                    throw new Error(errorData.message)
+                })
+        }
+
+        return res.json()
+    })
+    .then(data => {
+        let rows = ""
+        data.forEach(response => {
+            rows += addTaskAtList(response)
+        })
+
+        tasksList.innerHTML = rows
+    })
+    .catch(error => {
+        tasksList.innerHTML = returnError(error.message)
+    })
+}
+
+
+// =================================================
+// ERRORS
 
 
 function returnErrorTable(message) {
