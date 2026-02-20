@@ -187,9 +187,14 @@ function addTaskAtList(data){
                 </p>
                 <p class="mt-2">${data.description}</p>
             </div>
-                <div class="flex flex-row gap-4 mt-2">
+                <div class="flex flex-row justify-between gap-4 mt-2">
                     ${taskPriority(data.priority)}
-                    <button class="bg-green-300 p-1 py-2 font-medium text-green-800 rounded-lg w-[100px] text-center mt-2 text-sm transition hover:bg-green-400">Start Task</button>
+                    <div class="flex flex-row gap-2">
+                        <button class="bg-green-300 px-3 py-2 font-medium text-green-800 rounded-lg text-center mt-2 text-sm transition hover:bg-green-400">Start Task</button>
+                        <button class="bg-red-300 px-3 py-2 font-medium text-red-800 rounded-lg text-center mt-2 text-sm transition hover:bg-red-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b91c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2-icon lucide-trash-2"><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                        </button>
+                    </div>
             </div>
         </div>
     `
@@ -197,11 +202,11 @@ function addTaskAtList(data){
 
 function taskPriority(priority){
     if(priority == "HIGH"){
-        return `<p class="bg-red-200 p-1 py-2 font-medium text-red-800 rounded-lg w-[100px] text-center mt-2 text-sm">${priority}</p>`
+        return `<p class="bg-red-200 px-4 py-2 font-medium text-red-800 flex items-center rounded-lg text-center mt-2 text-sm">${priority}</p>`
     }else if(priority == "MEDIUM"){
-        return `<p class="bg-yellow-200 p-1 py-2 font-medium text-yellow-800 rounded-lg w-[100px] text-center mt-2 text-sm">${priority}</p>`
+        return `<p class="bg-yellow-200 px-4 py-2 font-medium text-yellow-800 flex items-center rounded-lg text-center mt-2 text-sm">${priority}</p>`
     }else{
-        return `<p class="bg-blue-200 p-1 py-2 font-medium text-blue-800 rounded-lg w-[100px] text-center mt-2 text-sm">${priority}</p>`
+        return `<p class="bg-blue-200 px-4 py-2 font-medium text-blue-800 flex items-center rounded-lg text-center mt-2 text-sm">${priority}</p>`
     }
 }
 
