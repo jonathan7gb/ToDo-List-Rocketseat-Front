@@ -29,12 +29,15 @@ function loadAllUsers(){
         })
         .then(data => {
 
-            let rows = ""
+            let rowsUser = ""
+            let rowsTask = ""
             data.forEach(response => {
-                rows += addUserAtList(response.name, response.email, response.id)
+                rowsUser += addUserAtList(response.name, response.email, response.id)
+                rowsTask += addUsersAtTaskForm(response.id, response.name)
             })
-
-            tableBody.innerHTML = rows
+            
+            userSelect.innerHTML = rowsTask
+            tableBody.innerHTML = rowsUser
         })
         .catch(error => {
             tableBody.innerHTML = returnError(error.message)
@@ -167,44 +170,46 @@ function addUserAtList(name, email, id) {
         `;
 }
 
+function addUsersAtTaskForm(user_id, user_name){
+    return `
+        <option value="${user_id}" class="font-medium">${user_name}</option>
+    `;
+}
+
 
 // ====================================================================
 // TASKS
+const userSelect = document.getElementById("userSelect")
 
 // RETURN URL
 function returnUrlTask(path) {
     return `http://localhost:8080/tasks${path}`
 }
 
-// loadAllTasks()
+loadAllTasks()
 
-// // GET ALL TASKS
-// function loadAllTasks(){
-//     fetch(returnUrlTask(""))
-//         .then(resp => {
+// GET ALL TASKS
+function loadAllTasks(){
+    fetch(returnUrlTask(""))
+        .then(resp => {
 
-//             if (!resp.ok) {
-//                 return resp.json()
-//                     .then(errorData => {
-//                         throw new Error(errorData.message)
-//                     })
-//             }
+            if (!resp.ok) {
+                return resp.json()
+                    .then(errorData => {
+                        throw new Error(errorData.message)
+                    })
+            }
 
-//             return resp.json()
-//         })
-//         .then(data => {
+            return resp.json()
+        })
+        .then(data => {
 
-//             let rows = ""
-//             data.forEach(response => {
-//                 rows += addUserAtList(response.name, response.email, response.id)
-//             })
-
-//             tableBody.innerHTML = rows
-//         })
-//         .catch(error => {
-//             tableBody.innerHTML = returnError(error.message)
-//         })
-// }
+            
+        })
+        .catch(error => {
+            
+        })
+}
 
 
 
