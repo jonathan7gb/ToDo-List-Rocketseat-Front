@@ -176,35 +176,35 @@ function returnUrlTask(path) {
     return `http://localhost:8080/tasks${path}`
 }
 
-loadAllTasks()
+// loadAllTasks()
 
-// GET ALL TASKS
-function loadAllTasks(){
-    fetch(returnUrlTask(""))
-        .then(resp => {
+// // GET ALL TASKS
+// function loadAllTasks(){
+//     fetch(returnUrlTask(""))
+//         .then(resp => {
 
-            if (!resp.ok) {
-                return resp.json()
-                    .then(errorData => {
-                        throw new Error(errorData.message)
-                    })
-            }
+//             if (!resp.ok) {
+//                 return resp.json()
+//                     .then(errorData => {
+//                         throw new Error(errorData.message)
+//                     })
+//             }
 
-            return resp.json()
-        })
-        .then(data => {
+//             return resp.json()
+//         })
+//         .then(data => {
 
-            let rows = ""
-            data.forEach(response => {
-                rows += addUserAtList(response.name, response.email, response.id)
-            })
+//             let rows = ""
+//             data.forEach(response => {
+//                 rows += addUserAtList(response.name, response.email, response.id)
+//             })
 
-            tableBody.innerHTML = rows
-        })
-        .catch(error => {
-            tableBody.innerHTML = returnError(error.message)
-        })
-}
+//             tableBody.innerHTML = rows
+//         })
+//         .catch(error => {
+//             tableBody.innerHTML = returnError(error.message)
+//         })
+// }
 
 
 
