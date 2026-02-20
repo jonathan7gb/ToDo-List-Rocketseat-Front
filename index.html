@@ -45,7 +45,7 @@
             <!-- CREATE USER FORM -->
             <div class="mt-4 bg-primary p-4 rounded-lg w-full">
                 <form action="" method="POST" class="flex flex-col" id="createForm">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
                         <div class="flex flex-col lg:col-span-2">
                             <label for="name" class="font-semibold font-poppins text-secondary">Name</label>
                             <input type="text" id="name" name="name" placeholder="Enter your full name" class="border-b font-medium p-2 bg-transparent border-secondary placeholder:text-secondary/75 outline-transparent focus:outline-none text-secondary">
@@ -59,7 +59,7 @@
                             <input type="password" id="password" name="password" placeholder="Enter your password" class="border-b font-medium p-2 bg-transparent border-secondary placeholder:text-secondary/75 outline-transparent focus:outline-none text-secondary">
                         </div>
                     </div>
-                    <button type="submit" class="bg-secondary text-white rounded-lg px-4 py-2 mt-4  font-medium hover:bg-secondary/90 transition">Create</button>
+                    <button type="submit" class="bg-secondary text-white rounded-lg px-4 py-2 mt-4 lg:mt-6 font-medium hover:bg-secondary/90 transition">Create</button>
                    
                     <!-- WHEN THE BACKEND THROW ANY ERROR, AT THIS SECTION OF FORMS THE FRONT SHOW ERROS -->
                     <div id="createErrors">
@@ -77,7 +77,7 @@
 
            <!-- SHOW USERS -->
             <div class="w-full">
-            <div class="shadow-lg border border-table-line rounded-lg max-h-[450px] overflow-auto [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-primary [&::-webkit-scrollbar-thumb]:bg-secondary [&::-webkit-scrollbar-thumb:hover]:bg-secondary/90">
+            <div class="shadow-lg border border-table-line rounded-lg max-h-[350px] overflow-auto [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-primary [&::-webkit-scrollbar-thumb]:bg-secondary [&::-webkit-scrollbar-thumb:hover]:bg-secondary/90">
                 <table class="w-full divide-y divide-table-line">
                 <thead class="sticky top-0">
                     <tr class="divide-x divide-table-line">
@@ -100,8 +100,8 @@
             <!-- CREATE TASK FORM -->
             <div class="mt-4 bg-primary p-4 rounded-lg w-full">
                 <form action="" method="POST" class="flex flex-col" id="createFormTask">
-                    <div class="grid grid-cols-1  md:grid-cols-2 gap-4 lg:gap-8">
-                        <div class="flex flex-col">
+                    <div class="grid grid-cols-1  md:grid-cols-2 gap-4 lg:gap-6">
+                        <div class="flex flex-col ">
                             <label for="title" class="font-semibold font-poppins text-secondary">Title</label>
                             <input type="text" id="title" name="title" placeholder="Enter task title" class="border-b font-medium p-2 bg-transparent border-secondary placeholder:text-secondary/75 outline-transparent focus:outline-none text-secondary">
                         </div>
@@ -121,12 +121,11 @@
                         <div class="flex flex-col">
                             <label for="userSelect" class="font-semibold font-poppins text-secondary">User</label>
                             <select name="userSelect" id="userSelect" class="border-b font-medium p-2 bg-transparent border-secondary outline-transparent focus:outline-none text-secondary">
-                                <option value="HIGH" disabled selected hidden>Choice the user</option>
                                 
                             </select>
                         </div>
                     </div>
-                    <button type="submit" class="bg-secondary text-white rounded-lg px-4 py-2 mt-4  font-medium hover:bg-secondary/90 transition">Create</button>
+                    <button type="submit" class="bg-secondary text-white rounded-lg px-4 py-2 mt-4 lg:mt-6 font-medium hover:bg-secondary/90 transition">Create</button>
                    
                     <!-- WHEN THE BACKEND THROW ANY ERROR, AT THIS SECTION OF FORMS THE FRONT SHOW ERROS -->
                     <div id="createErrorsTask">
@@ -143,7 +142,30 @@
             </div>
 
            <!-- SHOW TASKS -->
-           
+            <div class="bg-primary rounded-lg w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 max-h-[350px] overflow-auto p-4">
+                    <div class="flex flex-col gap-1  p-4 border rounded-lg border-secondary text-secondary">
+                        <h3 class="font-bold text-2xl">Title</h3>
+                        <p>Description</p>
+                        <p class="flex flex-row gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8A7650" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-user-round-icon lucide-circle-user-round"><path d="M18 20a6 6 0 0 0-12 0"/><circle cx="12" cy="10" r="4"/><circle cx="12" cy="12" r="10"/></svg>
+                            User name
+                        </p>
+                        <div class="">
+                            <p class="bg-blue-200 p-1 font-medium text-blue-800 rounded-lg w-[100px] text-center mt-2 text-sm">Priority</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-2 p-4 border rounded-lg border-secondary">
+                        <h3>Title</h3>
+                        <p>Description</p>
+                        <p>User name</p>
+                        <div class="">
+                            <p class="bg-blue-200 p-1 font-medium text-blue-800 rounded-lg w-[100px] text-center ">Priority</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
         </aside>

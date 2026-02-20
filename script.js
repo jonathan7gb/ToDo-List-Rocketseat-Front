@@ -30,7 +30,7 @@ function loadAllUsers(){
         .then(data => {
 
             let rowsUser = ""
-            let rowsTask = ""
+            let rowsTask = `<option value="HIGH" disabled selected hidden>Choice the user</option>`
             data.forEach(response => {
                 rowsUser += addUserAtList(response.name, response.email, response.id)
                 rowsTask += addUsersAtTaskForm(response.id, response.name)
