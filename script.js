@@ -1,7 +1,15 @@
+// ==============================================================
+// USERS
+
 const tableBody = document.getElementById("tableBody")
 const createForm = document.getElementById("createForm")
 const createErrors = document.getElementById("createErrors")
 const inputSearch = document.getElementById("searchUser")
+
+// RETURN URL
+function returnUrlUser(path) {
+    return `http://localhost:8080/users${path}`
+}
 
 loadAllUsers()
 
@@ -56,10 +64,6 @@ inputSearch.addEventListener('input', function(e) {
     }
 })
 
-// RETURN URL
-function returnUrlUser(path) {
-    return `http://localhost:8080/users${path}`
-}
 
 // ===========================================================
 // USER METHODS
@@ -145,7 +149,6 @@ function deleteUser(id) {
         })
 }
 
-
 // ================================================================
 // UTIL ERROR AND FUNCTIONS
 
@@ -163,6 +166,46 @@ function addUserAtList(name, email, id) {
             </tr>
         `;
 }
+
+
+// ====================================================================
+// TASKS
+
+// RETURN URL
+function returnUrlTask(path) {
+    return `http://localhost:8080/tasks${path}`
+}
+
+loadAllTasks()
+
+// GET ALL TASKS
+function loadAllTasks(){
+    fetch(returnUrlTask(""))
+        .then(resp => {
+
+            if (!resp.ok) {
+                return resp.json()
+                    .then(errorData => {
+                        throw new Error(errorData.message)
+                    })
+            }
+
+            return resp.json()
+        })
+        .then(data => {
+
+            let rows = ""
+            data.forEach(response => {
+                rows += addUserAtList(response.name, response.email, response.id)
+            })
+
+            tableBody.innerHTML = rows
+        })
+        .catch(error => {
+            tableBody.innerHTML = returnError(error.message)
+        })
+}
+
 
 
 function returnErrorTable(message) {

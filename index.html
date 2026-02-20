@@ -42,7 +42,6 @@
         <aside class="flex flex-col items-center justify-center">
             <h2 class="text-3xl font-semibold font-poppins text-secondary">Users</h2>
 
-
             <!-- CREATE USER FORM -->
             <div class="mt-4 bg-primary p-4 rounded-lg w-full">
                 <form action="" method="POST" class="flex flex-col" id="createForm">
@@ -97,6 +96,47 @@
         </aside>
         <aside class="flex flex-col items-center">
             <h2 class="text-2xl font-bold font-poppins text-secondary">Tasks</h2>
+
+            <!-- CREATE TASK FORM -->
+            <div class="mt-4 bg-primary p-4 rounded-lg w-full">
+                <form action="" method="POST" class="flex flex-col" id="createForm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
+                        <div class="flex flex-col">
+                            <label for="title" class="font-semibold font-poppins text-secondary">Title</label>
+                            <input type="text" id="title" name="title" placeholder="Enter task title" class="border-b font-medium p-2 bg-transparent border-secondary placeholder:text-secondary/75 outline-transparent focus:outline-none text-secondary">
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="description" class="font-semibold font-poppins text-secondary">Description</label>
+                            <input type="text" id="description" name="description" placeholder="Enter task description" class="border-b font-medium p-2 bg-transparent border-secondary placeholder:text-secondary/75 outline-transparent focus:outline-none text-secondary">
+                        </div>
+                        <div class="flex flex-col md:col-span-2 lg:col-span-1">
+                            <label for="priority" class="font-semibold font-poppins text-secondary">Priority</label>
+                            <select name="priority" id="priority" class="border-b font-medium p-2 bg-transparent border-secondary placeholder:text-secondary/75 outline-transparent focus:outline-none text-secondary">
+                                <option value="HIGH" >Choice the priority</option>
+                                <option value="HIGH">High</option>
+                                <option value="MEDIUM">Medium</option>
+                                <option value="LOW">Low</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="bg-secondary text-white rounded-lg px-4 py-2 mt-4  font-medium hover:bg-secondary/90 transition">Create</button>
+                   
+                    <!-- WHEN THE BACKEND THROW ANY ERROR, AT THIS SECTION OF FORMS THE FRONT SHOW ERROS -->
+                    <div id="createErrors">
+
+                    </div>
+                </form>
+            </div>
+
+            <!-- SEARCH SECTION -->
+            <div class="py-4  mt-4 w-full">
+                <form action="" method="GET" class="w-full flex flex-row gap-2" id="searchForm">
+                    <input type="text" name="searchTask" id="searchTask" placeholder="🔍︎ Search tasks" class="w-full border border-secondary rounded-lg font-medium py-2 px-4 bg-transparent placeholder:text-secondary/75 outline-transparent focus:outline-none text-secondary">
+                </form>
+            </div>
+
+           <!-- SHOW TASKS -->
+           
         </aside>
     </main>
 
