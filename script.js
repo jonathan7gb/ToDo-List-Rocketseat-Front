@@ -216,9 +216,9 @@ function taskPriority(priority){
     if(priority == "HIGH"){
         return `<p class="bg-red-200 px-4 py-2 font-medium text-red-800 flex items-center rounded-lg text-center mt-2 text-sm">${priority}</p>`
     }else if(priority == "MEDIUM"){
-        return `<p class="bg-yellow-200 px-4 py-2 font-medium text-yellow-800 flex items-center rounded-lg text-center mt-2 text-sm">${priority}</p>`
+        return `<p class="bg-orange-200 px-4 py-2 font-medium text-orange-800 flex items-center rounded-lg text-center mt-2 text-sm">${priority}</p>`
     }else{
-        return `<p class="bg-blue-200 px-4 py-2 font-medium text-blue-800 flex items-center rounded-lg text-center mt-2 text-sm">${priority}</p>`
+        return `<p class="bg-yellow-200 px-4 py-2 font-medium text-yellow-800 flex items-center rounded-lg text-center mt-2 text-sm">${priority}</p>`
     }
 }
 
