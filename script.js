@@ -133,16 +133,14 @@ function deleteUser(id) {
     const url = returnUrlUser(`/${id}`)
 
     fetch(url, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        method: 'DELETE'
     })
         .then(res => {
             if (!res.ok) {
-                return res.text().then(text => {
-                    throw new Error(text || "Erro ao deletar usuário")
-                })
+                return res.json()
+                    .then(errorData => {
+                        throw new Error(errorData.message)
+                    })
             }
 
             location.reload()
@@ -277,7 +275,7 @@ function loadAllTasks(){
             tasksList.innerHTML = rows
         })
         .catch(error => {
-            
+            tasksList.innerHTML = returnError(error.message)
         })
 }
 
@@ -377,7 +375,7 @@ function returnErrorTable(message) {
 
 function returnError(message) {
     return `
-            <p class="text-red-500 mt-2 font-medium font-inter">
+            <p class="text-red-500 mt-2 font-medium font-inter px-4 py-2">
             ${message}
             </p>
         `;
