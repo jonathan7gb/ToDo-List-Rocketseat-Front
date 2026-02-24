@@ -35,5 +35,10 @@ Este repositório é a parte **front end** do projeto. O back end (API REST com 
 - Busca de usuários por nome
 - Exclusão de usuários
 
-**Tarefas** *(em desenvolvimento)*
-- Gerenciamento de tarefas por usuário
+**Tarefas**
+- Criação de tarefas
+- Listagem de tarefas
+- Busca de tarefas por título
+- Exclusão de tarefas
+- Iniciar tarefa
+- Finalizar tarefa
